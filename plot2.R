@@ -1,0 +1,6 @@
+household_power_consumption <- read.csv("household_power_consumption.txt", sep=";")
+hps<-subset(household_power_consumption, Date=="1/2/2007" | Date == "2/2/2007")
+png(filename="plot2.png", width=480, height=480)
+with(hps, plot(as.numeric(as.character(hps$Global_active_power)),type="l", xaxt="n", ylab="Global Active Power (kilowats)"))
+axis(1, at=c(1,nrow(hps)/2,nrow(hps)),labels=c("Thu","Fri","Sat")) 
+dev.off()
